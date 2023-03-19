@@ -13,6 +13,7 @@ public:
     Monitor();
     bool AddFile(QString path);
     bool DelFile(QString path);
+    void update();
 };
 
 #endif // MONITOR_H
