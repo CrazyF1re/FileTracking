@@ -22,7 +22,10 @@ public:
     {
             return e1.FileName == FileName && e1.size == size && e1.isExist == isExist;
     }
-
+signals:
+    ChangedToExist(QString path);
+    ChangedToNonExist(QString path);
+    ChangedSize(qint64 size);
 };
 
 
