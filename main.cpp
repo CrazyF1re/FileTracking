@@ -1,6 +1,7 @@
 #include <QCoreApplication>
 #include "monitor.h"
 #include "statefile.h"
+
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
