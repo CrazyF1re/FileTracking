@@ -1,10 +1,10 @@
 #include <QCoreApplication>
 #include "monitor.h"
-
+#include "statefile.h"
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    printf_s("F");
+    StateFile temp = StateFile("C:\\Users\\Vova\\Downloads\\qt.txt");
     Monitor eye;
     eye.AddFile("C:\\Users\\Vova\\Downloads\\qt.txt");
     eye.AddFile("C:\\Users\\Vova\\Downloads\\123.txt");
