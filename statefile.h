@@ -11,7 +11,7 @@ class StateFile : public QObject
     QString FileName;
     qint64 size;
     bool isExist;
-protected:
+public:
     QString getFileName();
     qint64 getSize();
     bool getIsExist();

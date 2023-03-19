@@ -10,7 +10,8 @@ StateFile::StateFile()
 StateFile::StateFile(QString path)
 {
     QFileInfo file(path);
-    FileName = file.fileName();
+
+    FileName = file.path()+"\\"+file.fileName();
     size = file.size();
     isExist = file.exists();
 }
