@@ -9,14 +9,10 @@
 class StateFile : public QObject
 {
     Q_OBJECT
-    output out;
     QString FileName;
     qint64 size;
     bool isExist;
-public:
-    QString getFileName();
-    qint64 getSize();
-    bool getIsExist();
+    output out;
 public:
     StateFile();
     StateFile(QString path);
@@ -29,16 +25,16 @@ signals:
     void ChangedToExist(QString FileName);
     void ChangedSize(QString FileName, qint64 size);
     void ChangedToNonExist(QString FileName);
-
+    void first_out(QString path,qint64 size,bool isExist);
+    void out_signal();
+public slots:
+    void out_slot(){
+     emit first_out(this->FileName,this->size,this->isExist);
+    }
 public:
     StateFile(const StateFile& temp);
     StateFile& operator =(const StateFile& temp);
-public slots:
-    void test(QString FileName,qint64 size)
-    {
-        qDebug()<<FileName;
-        printf_s("%s , %d",FileName.toStdString().c_str(),size);
-    }
+
 
 };
 #endif // STATEFILE_H

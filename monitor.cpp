@@ -15,6 +15,7 @@ bool Monitor::AddFile(QString path)
         return false;
     }
     objects.push_back(temp);
+    emit temp.out_signal();
     return true;
 
 }
@@ -24,9 +25,6 @@ bool Monitor::DelFile(QString path)
     if(objects.contains(temp))
     {
         objects.removeOne(temp);
-//        QObject::disconnect(&temp,&StateFile::ChangedToExist,&out,&output::outExistFile);
-//        QObject::disconnect(&temp,&StateFile::ChangedToNonExist,&out,&output::outNonExistFile);
-//        QObject::disconnect(&temp,&StateFile::ChangedSize,&out,&output::outResizedFile);
         return true;
     }
     return false;
@@ -34,9 +32,9 @@ bool Monitor::DelFile(QString path)
 
 void Monitor::update()
 {
-    printf_s("Monitor::update()\n");
     for(int i=0;i<objects.size();i++)
     {
+
         objects[i].update();
     }
 
