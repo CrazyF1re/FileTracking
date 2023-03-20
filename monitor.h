@@ -10,6 +10,7 @@
 class Monitor : public QObject
 {
     Q_OBJECT
+    output out;
     QTimer *timer;
     QList<StateFile> objects;
 public:
