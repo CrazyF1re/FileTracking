@@ -1,6 +1,6 @@
 #include "statefile.h"
 
-
+//Constructors
 StateFile::StateFile()
 {
     FileName = "";
@@ -10,47 +10,67 @@ StateFile::StateFile()
 StateFile::StateFile(QString path)
 {
     QFileInfo file(path);
-
     FileName = file.path()+"\\"+file.fileName();
     size = file.size();
     isExist = file.exists();
 }
-void StateFile::update()
+
+//Getters
+QString StateFile::GetFileName()
+{
+    return FileName;
+}
+qint64 StateFile::GetSize()
+{
+    return size;
+}
+bool StateFile::GetExist()
+{
+    return isExist;
+}
+
+//update info about file
+bool StateFile::update()
 {
     QFileInfo temp = QFileInfo(FileName);
     if(temp.exists() && !isExist)//если файл существует, хотя до этого его не было
     {
         isExist = true;
-        emit ChangedToExist(FileName);
+        return true;
     }
     else if(!temp.exists() && isExist)//если файл не существует, хотя до этого существовал
     {
         isExist = false;
-        emit ChangedToNonExist(FileName);
+        size = 0;
+        return true;
     }
     else if(temp.size()!= size)//если файл изменил свой размер
     {
         size = temp.size();
-        emit ChangedSize(size);
+        return true;
     }
+    return false;
 }
 
-QString StateFile::getFileName(){ return FileName;}
-bool StateFile::getIsExist(){return isExist;}
-qint64 StateFile::getSize(){return size;}
 
-
-
-StateFile::StateFile(const StateFile& temp)
+//overload == and = functions
+bool StateFile::operator==(const StateFile& e1) const
 {
-    FileName = temp.FileName;
-    isExist = temp.isExist;
-    size = temp.size;
-
+    return e1.FileName == FileName && e1.size == size && e1.isExist == isExist;
 }
 StateFile& StateFile::operator =(const StateFile& temp)
 {
     FileName = temp.FileName;
     isExist = temp.isExist;
     size = temp.size;
+    return *this;
+
+}
+// copy constructor
+StateFile::StateFile(const StateFile& temp)
+{
+    FileName = temp.FileName;
+    isExist = temp.isExist;
+    size = temp.size;
+
 }

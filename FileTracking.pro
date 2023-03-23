@@ -10,6 +10,7 @@ CONFIG -= app_bundle
 SOURCES += \
         main.cpp \
         monitor.cpp \
+        output.cpp \
         statefile.cpp
 
 # Default rules for deployment.
@@ -19,4 +20,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     monitor.h \
+    output.h \
     statefile.h

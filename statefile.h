@@ -12,26 +12,18 @@ class StateFile : public QObject
     qint64 size;
     bool isExist;
 public:
-    QString getFileName();
-    qint64 getSize();
-    bool getIsExist();
-public:
     StateFile();
     StateFile(QString path);
-    bool operator==(const StateFile& e1) const
-        {
-                return e1.FileName == FileName && e1.size == size && e1.isExist == isExist;
-        }
-    void update();
+    bool operator==(const StateFile& e1) const;
+    bool update();
+    //Getters
+    QString GetFileName();
+    qint64 GetSize();
+    bool GetExist();
 signals:
-    ChangedToExist(QString path);
-    ChangedSize(qint64 size);
-    ChangedToNonExist(QString path);
-
-
-
-
-
+    void ChangedToExist(QString FileName);
+    void ChangedSize(QString FileName, qint64 size);
+    void ChangedToNonExist(QString FileName);
 public:
     StateFile(const StateFile& temp);
     StateFile& operator =(const StateFile& temp);
