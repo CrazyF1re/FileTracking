@@ -1,32 +1,25 @@
 #ifndef STATEFILE_H
 #define STATEFILE_H
-
-#include <QObject>
 #include <QString>
 #include <QFileInfo>
 
-class StateFile : public QObject
+class StateFile
 {
-    Q_OBJECT
-    QString FileName;
-    qint64 size;
-    bool isExist;
+    QString FileName;//путь до файла
+    qint64 size;//размер файла
+    bool isExist;//флаг существования
 public:
-    StateFile();
-    StateFile(QString path);
-    bool operator==(const StateFile& e1) const;
-    bool update();
+    StateFile();//конструктор по умолчанию
+    StateFile(QString path);//коструктор с аргументом QString
+    bool operator==(const StateFile& e1) const;//перегрузка оператора сравнения
+    bool update();//функция обновления информации о файле
     //Getters
-    QString GetFileName();
+    QString GetFileName();//и так все понятно
     qint64 GetSize();
     bool GetExist();
-signals:
-    void ChangedToExist(QString FileName);
-    void ChangedSize(QString FileName, qint64 size);
-    void ChangedToNonExist(QString FileName);
 public:
-    StateFile(const StateFile& temp);
-    StateFile& operator =(const StateFile& temp);
+    StateFile(const StateFile& temp);//конструктор копирования
+    StateFile& operator =(const StateFile& temp);//перегрузка оператора присваивания
 
 
 };

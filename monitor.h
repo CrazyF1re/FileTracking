@@ -6,7 +6,7 @@
 #include <QList>
 #include <QTimer>
 
-class Monitor : public QObject
+class Monitor : public QObject//класс наследник qobject т.к работаем с сигналами
 {
 private:
     Q_OBJECT
@@ -25,13 +25,13 @@ public:
     bool AddFile(QString path);
     bool DelFile(QString path);
 signals:
-    void Resized(QString path, qint64 size);
-    void Exist(QString path,qint64 size);
-    void NotExist(QString path);
-    void FirstOut(QString path,qint64 size,bool isExist);
+    void Resized(QString path, qint64 size);// сигнал если изменился размер
+    void Exist(QString path,qint64 size);//сигнал если файл начал существовать
+    void NotExist(QString path);//сигнал если файл перестал существовать или не существовал
+    void FirstOut(QString path,qint64 size,bool isExist);//сигнал для первого вывода информации о добавленном файле
 
 public slots:
-    void update();
+    void update();//слот для обновления информации о файлах
 };
 
 #endif // MONITOR_H

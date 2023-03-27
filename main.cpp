@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     QObject::connect(&eye,&Monitor::Exist,&out,&output::outExistFile);
     QObject::connect(&eye,&Monitor::NotExist,&out,&output::outNonExistFile);
     QObject::connect(&eye,&Monitor::FirstOut,&out,&output::FirstOut);
-    eye.AddFile("C:\\Users\\Vova\\Downloads\\qt.txt");
+    eye.AddFile("C:\\Users\\Vova\\Downloads\\qt.txt");//добавляем файлы под наблюдение
     eye.AddFile("C:\\Users\\Vova\\Downloads\\123.txt");
     eye.AddFile("C:\\Users\\Vova\\Downloads\\file3.txt");
     eye.AddFile("C:\\Users\\Vova\\Downloads\\file.txt");

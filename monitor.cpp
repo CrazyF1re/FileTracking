@@ -2,25 +2,25 @@
 
 Monitor::Monitor()
 {
-    timer = new QTimer(this);
+    timer = new QTimer(this);//добавление таймера и связи м/д сигналом и слотом
     connect(timer,SIGNAL(timeout()),this,SLOT(update()));
     timer->start(100);
 }
 bool Monitor::AddFile(QString path)
 {
-    StateFile temp(path);
+    StateFile temp(path);//временный файл для проверки на наличие файла в списке
     if(objects.contains(temp))
     {
         return false;
     }
-    objects.push_back(temp);
-    emit FirstOut(temp.GetFileName(),temp.GetSize(),temp.GetExist());
+    objects.push_back(temp);//добавление объекта при его отсутствии в списке
+    emit FirstOut(temp.GetFileName(),temp.GetSize(),temp.GetExist());//излучение сигнала на вывод начальной информации о файле
     return true;
 
 }
-bool Monitor::DelFile(QString path)
+bool Monitor::DelFile(QString path)//удаление файла
 {
-    StateFile temp(path);
+    StateFile temp(path);//временный файл для проверки на наличие файла в списке
     if(objects.contains(temp))
     {
         objects.removeOne(temp);
@@ -29,12 +29,12 @@ bool Monitor::DelFile(QString path)
     return false;
 }
 
-void Monitor::update()
+void Monitor::update()//обновление информации о файлах
 {
     for(int i=0;i<objects.size();i++)
     {
-        StateFile temp = objects[i];
-        if (objects[i].update())
+        StateFile temp = objects[i];// запоминаем прежнюю информацию о файле
+        if (objects[i].update())//обновляем информацию и проверяем есть ли изменения
         {
             if (temp.GetExist() && !objects[i].GetExist())// существует => не существует
             {
