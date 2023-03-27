@@ -1,7 +1,7 @@
 #include "statefile.h"
 
 //Constructors
-StateFile::StateFile()
+StateFile::StateFile()//по умолчанию (возможно и не нужен)
 {
     FileName = "";
     size = 0;

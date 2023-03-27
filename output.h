@@ -4,10 +4,10 @@
 #include <QTextStream>
 #include <iostream>
 
-class output : public QObject
+class output : public QObject//класс наследник qobject т.к. работаем с сигналами-слотами
 {
     Q_OBJECT
-public slots:
+public slots://слоты для вывода информации
     void outExistFile(QString temp,qint64 size);
     void outNonExistFile(QString temp);
     void outResizedFile(QString temp, qint64 size);
