@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    Monitor eye;
+    Monitor& eye = Monitor::Instance();
     output out;
     QObject::connect(&eye,&Monitor::Resized,&out,&output::outResizedFile);
     QObject::connect(&eye,&Monitor::Exist,&out,&output::outExistFile);
@@ -16,6 +16,5 @@ int main(int argc, char *argv[])
     eye.AddFile("C:\\Users\\Vova\\Downloads\\123.txt");
     eye.AddFile("C:\\Users\\Vova\\Downloads\\file3.txt");
     eye.AddFile("C:\\Users\\Vova\\Downloads\\file.txt");
-
     return a.exec();
 }

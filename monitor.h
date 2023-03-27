@@ -8,11 +8,20 @@
 
 class Monitor : public QObject
 {
+private:
     Q_OBJECT
     QTimer *timer;
     QList<StateFile> objects;
-public:
     Monitor();
+    ~Monitor(){}
+    Monitor(Monitor const &);
+    Monitor& operator=(Monitor const&);
+public:
+    static Monitor& Instance()
+    {
+        static Monitor s;
+        return s;
+    }
     bool AddFile(QString path);
     bool DelFile(QString path);
 signals:
