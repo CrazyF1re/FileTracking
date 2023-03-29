@@ -2,9 +2,7 @@
 
 Monitor::Monitor()
 {
-    timer = new QTimer(this);//добавление таймера и связи м/д сигналом и слотом
-    connect(timer,SIGNAL(timeout()),this,SLOT(update()));
-    timer->start(100);
+
 }
 bool Monitor::AddFile(QString path)
 {
