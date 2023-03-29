@@ -8,3 +8,5 @@
   - 3.файл изменил размер
   
 Реализация: через сигналы и слоты QT
+![image](https://user-images.githubusercontent.com/46199091/228510713-fead689a-3ba9-4062-b176-b008d95f88ee.png)
+
