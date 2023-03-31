@@ -21,4 +21,7 @@ int main(int argc, char *argv[])
     QObject::connect(timer,SIGNAL(timeout()),&eye,SLOT(update()));
     timer->start(100);
     return a.exec();
+
+
+
 }
