@@ -17,6 +17,8 @@ int main(int argc, char *argv[])
     eye.AddFile("C:\\Users\\Vova\\Downloads\\file3.txt");
     eye.AddFile("C:\\Users\\Vova\\Downloads\\file.txt");
 
+    eye.DelFile("C:\\Users\\Vova\\Downloads\\file.txt");
+
     QTimer* timer = new QTimer(&eye);//добавление таймера и связи м/д сигналом и слотом
     QObject::connect(timer,SIGNAL(timeout()),&eye,SLOT(update()));
     timer->start(100);
