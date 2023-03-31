@@ -1,11 +1,4 @@
 #include "monitor.h"
-
-Monitor::Monitor()
-{
-    timer = new QTimer(this);//добавление таймера и связи м/д сигналом и слотом
-    connect(timer,SIGNAL(timeout()),this,SLOT(update()));
-    timer->start(100);
-}
 bool Monitor::AddFile(QString path)
 {
     StateFile temp(path);//временный файл для проверки на наличие файла в списке

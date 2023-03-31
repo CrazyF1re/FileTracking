@@ -10,7 +10,7 @@ StateFile::StateFile()//по умолчанию (возможно и не нуж
 StateFile::StateFile(QString path)
 {
     QFileInfo file(path);
-    FileName = file.path()+"\\"+file.fileName();
+    FileName = path;
     size = file.size();
     isExist = file.exists();
 }
@@ -36,6 +36,7 @@ bool StateFile::update()
     if(temp.exists() && !isExist)//если файл существует, хотя до этого его не было
     {
         isExist = true;
+        size = temp.size();
         return true;
     }
     else if(!temp.exists() && isExist)//если файл не существует, хотя до этого существовал
