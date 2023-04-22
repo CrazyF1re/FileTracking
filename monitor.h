@@ -9,10 +9,9 @@
 class Monitor : public QObject
 {
     Q_OBJECT
-    QTimer *timer;
     QList<StateFile> objects;
 public:
-    Monitor();
+    Monitor(){}
     bool AddFile(QString path);
     bool DelFile(QString path);
 signals:
