@@ -1,11 +1,6 @@
 #include "monitor.h"
 
-Monitor::Monitor()
-{
-    timer = new QTimer(this);
-    connect(timer,SIGNAL(timeout()),this,SLOT(update()));
-    timer->start(100);
-}
+
 bool Monitor::AddFile(QString path)
 {
     StateFile temp(path);

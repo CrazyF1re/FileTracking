@@ -4,15 +4,13 @@
 #include "statefile.h"
 #include <QObject>
 #include <QList>
-#include <QTimer>
 
 class Monitor : public QObject
 {
 private:
     Q_OBJECT
-    QTimer *timer;
     QList<StateFile> objects;
-    Monitor();
+    Monitor(){}
     ~Monitor(){}
     Monitor(Monitor const &);
     Monitor& operator=(Monitor const&);
