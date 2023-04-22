@@ -1,18 +1,18 @@
 #include "output.h"
 
-void output::outExistFile(QString temp, qint64 size)//вывод на консоль если файл существует
+void output::outExistFile(QString temp, qint64 size)//File exists, print its size
 {
     std::cout<< "File "<<temp.toStdString().c_str()<< " exists, size: "<< size<<std::endl;
 }
-void output::outNonExistFile(QString temp)//вывод на консоль если файл не существует
+void output::outNonExistFile(QString temp)//File does not exist, print info
 {
     std::cout<<"File "<< temp.toStdString().c_str()<< " does not exist"<<std::endl;
 }
-void output::outResizedFile(QString temp, qint64 size)//вывод на консоль если файл изменил размер
+void output::outResizedFile(QString temp, qint64 size)//File resized, print new size
 {
     std::cout<<"File "<< temp.toStdString().c_str()<<" changed size, new_size: "<<size<<std::endl;
 }
-void output::FirstOut(QString path, qint64 size, bool isExist)//первый вывод информации о файле
+void output::FirstOut(QString path, qint64 size, bool isExist)// Here is first print when file just added under surveillance
 {
     if (isExist)
     {

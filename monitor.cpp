@@ -1,4 +1,6 @@
 #include "monitor.h"
+
+
 bool Monitor::AddFile(QString path)
 {
     StateFile temp(path);//временный файл для проверки на наличие файла в списке

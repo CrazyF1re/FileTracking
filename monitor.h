@@ -11,7 +11,6 @@ class Monitor : public QObject//класс наследник qobject т.к ра
 private:
     Q_OBJECT
     QList<StateFile> objects;
-
     Monitor(){}
     ~Monitor(){}
     Monitor(Monitor const &);
