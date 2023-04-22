@@ -36,6 +36,7 @@ bool StateFile::update()
     if(temp.exists() && !isExist)//если файл существует, хотя до этого его не было
     {
         isExist = true;
+        size = temp.size();
         return true;
     }
     else if(!temp.exists() && isExist)//если файл не существует, хотя до этого существовал
