@@ -14,3 +14,4 @@
  - output - объект класса, выводящий всю информацию в консоль</br>
 
 UML-диаграмма:</br>
+![my_uml](https://user-images.githubusercontent.com/46199091/233781718-d56f00b8-362a-46b6-aa4d-49776c8e1e9c.png)
