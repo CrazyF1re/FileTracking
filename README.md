@@ -13,5 +13,5 @@
   - 3.файл не существует
   
 Реализация: через сигналы и слоты QT
-![image](https://user-images.githubusercontent.com/46199091/228510713-fead689a-3ba9-4062-b176-b008d95f88ee.png)
+![my_uml (1)](https://user-images.githubusercontent.com/46199091/234563255-1d65b9d2-65f7-4a9e-af73-09b7ae676928.png)
 
